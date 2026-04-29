@@ -1,13 +1,17 @@
-name: First workflow
-on:
+name: secondFile
+on :
     push:
         branches:
-            - main
+                -main
 jobs:
-    firstJob:
+    copyfile:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout repository
-              uses: actions/checkout@v2
-            - name: Run a one-line script
-              run: echo "Hello, World!"
+         - name: copy file in server
+           uses: actions/checkout@v4
+
+         - name: List files in the directory
+           run: ls -la  
+
+         - name: print directory
+           run: pwd
