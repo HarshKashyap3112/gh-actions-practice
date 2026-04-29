@@ -2,12 +2,12 @@ name: secondFile
 on :
     push:
         branches:
-                -main
+             - main
 jobs:
     copyfile:
         runs-on: ubuntu-latest
         steps:
-         - name: copy file in server
+         - name: Checkout repository
            uses: actions/checkout@v4
 
          - name: List files in the directory
