@@ -2,7 +2,7 @@ name : build-and-test
 on:
   push:
     branches:
-      - fearure-2
+      - feature-2
 jobs:
   build:
     runs-on : ubuntu-latest
