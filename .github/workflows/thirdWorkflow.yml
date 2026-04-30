@@ -1,0 +1,18 @@
+name : build-and-test
+on:
+    push:
+        branches:
+            - feature-2
+jobs:
+    build:
+        runs-on : ubuntu-latest
+        steps:
+            - name : build
+              run  : echo "building the project!!"
+    
+    test :
+        runs-on : ubuntu-latest
+        steps:
+            - name : test
+              run  : echo "testing the project !!"
+             
