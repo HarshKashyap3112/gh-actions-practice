@@ -1,7 +1,7 @@
 name: all test 
 on:
    push:
-        branches : [feature-2]
+        branches : [main]
 jobs:
     doing_all_things:
         runs-on: ubuntu-latest
@@ -22,8 +22,9 @@ jobs:
             - name: mark success
               run: echo "tests passed succe1ssfully for node version ${{ matrix.node-version }}"
             
-              if: github.ref == 'refs/heads/main'
+              
             - name: checking secret
+              if: github.ref == 'refs/heads/main'
               env :
                 MY_SECRET : ${{ secrets.MY_SECRET }}
               run : echo "hello $MY_SECRET"
