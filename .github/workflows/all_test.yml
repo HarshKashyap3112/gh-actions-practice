@@ -1,0 +1,29 @@
+name: all test 
+on:
+   push:
+        branches : [feature-2]
+jobs:
+    doing_all_things:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [ 18, 20 ,16]
+        steps:
+            - name: checkout code   
+              uses: actions/checkout@v4 
+            - name: setup node js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node-version }}
+
+            - name: install dependencies
+              run: cd node-js && npm install
+
+            - name: mark success
+              run: echo "tests passed succe1ssfully for node version ${{ matrix.node-version }}"
+            
+              if: github.ref == 'refs/heads/main'
+            - name: checking secret
+              env :
+                MY_SECRET : ${{ secrets.MY_SECRET }}
+              run : echo "hello $MY_SECRET"

@@ -1,0 +1,25 @@
+name : testing node js 
+on: 
+  push:
+    branches: [ fake ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+        - name: checkout code
+          uses: actions/checkout@v4
+
+        - name: setup node js
+          uses: actions/setup-node@v4
+          with:
+              node-version: '18'
+
+        - name: install dependencies
+          run: cd node-js && npm install
+        - name: fail tests
+          run: exit 1
+        - name: run tests
+          run: cd node-js && npm test

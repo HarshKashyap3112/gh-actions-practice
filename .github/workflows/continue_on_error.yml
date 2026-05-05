@@ -1,0 +1,18 @@
+name: Continue on Error
+on:
+  push:
+    branches: [ fake-2 ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+        - name: checkout code
+          run: exit 1 
+          continue-on-error: true
+
+        - name : code run
+          run: echo "Running code after the error..."
+          
