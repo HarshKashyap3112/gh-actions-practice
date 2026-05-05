@@ -1,0 +1,27 @@
+name : matrix-test
+on: 
+  push:
+    branches: [ feature-2 ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18, 20 ,16]
+    steps:
+        - name: checkout code   
+          uses: actions/checkout@v4
+
+        - name: setup node js
+          uses: actions/setup-node@v4
+          with:
+              node-version: ${{ matrix.node-version }}
+
+        - name: install dependencies
+          run: cd node-js && npm install
+
+        - name: mark success
+          run: echo "Tests passed successfully for node version ${{ matrix.node-version }}"

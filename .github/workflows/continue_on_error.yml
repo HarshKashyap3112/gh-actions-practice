@@ -1,7 +1,7 @@
 name: Continue on Error
 on:
   push:
-    branches: [ feature-2 ]
+    branches: [ fake-2 ]
   pull_request:
     branches: [ main ]
 
@@ -12,7 +12,7 @@ jobs:
         - name: checkout code
           run: exit 1 
           continue-on-error: true
-          
+
         - name : code run
           run: echo "Running code after the error..."
           
