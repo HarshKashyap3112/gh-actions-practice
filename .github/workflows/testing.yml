@@ -20,6 +20,6 @@ jobs:
         - name: install dependencies
           run: cd node-js && npm install
         - name: fail tests
-          run: exit 1
+          run: exit 0
         - name: run tests
           run: cd node-js && npm test
