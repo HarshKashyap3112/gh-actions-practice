@@ -1,7 +1,7 @@
 name : testing node js 
 on: 
   push:
-    branches: [ feature-2 ]
+    branches: [ fake ]
   pull_request:
     branches: [ main ]
 
